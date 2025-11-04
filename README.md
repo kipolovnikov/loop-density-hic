@@ -1,60 +1,86 @@
-# Loop Density Inference from Hi-C Data
+# 🧬 Loop Density Inference from Hi-C Data
 
-### Code and data accompanying the paper:
+### Code and data accompanying the paper  
 **“Universal contact statistics of looped polymers resolve cohesin density and stoichiometry in vivo”**  
-by *K. Polovnikov & D. Starkov (2025)*
+*K. Polovnikov & D. Starkov (2025)*
 
 ---
 
-## 🧩 Overview
-This repository provides the full computational framework and example data used in our analysis of short-scale Hi-C contact statistics.  
+## 📘 Overview
 
-It includes tools to:
-- Compute **contact probability curves** $P(s)$ and their **log-derivatives** directly from `.cool` Hi-C files.  
-- Fit **loop-density and protocol parameters** — the loop period $T$ and the effective fragment length $v_0^{\mathrm{eff}}$ — to experimental data.  
-- Reproduce all **data-intensive figures** from the paper using interactive Jupyter notebooks.  
-
-Our goal is to make the inference of **cohesin loop density** from Hi-C data transparent, reproducible, and accessible so that anyone can apply it to their own datasets.  
-If you have questions or encounter issues, please don’t hesitate to contact us.
+This repository provides the **data and analysis code** used in our study of short-range Hi-C contact probability curves \( P(s) \).  
+It allows the user to **reproduce all figures** in the paper and to **infer the loop density (period \( T \))** and **effective fragment length (\( v_0^{\mathrm{eff}} \))** from any Hi-C dataset.
 
 ---
 
-## 📁 Repository Structure
+## 📂 Repository Structure
 ```
-loop-density-hic/
+├── data/
+│ ├── full_logder_x_.pickle # Mids (genomic distances)
+│ ├── full_logder_y_.pickle # Log-derivatives (smoothed slopes of log P(s))
+│ └── ... # All datasets used in the paper
 │
-├── data/ # Example Hi-C data and metadata
-│ ├── example_coolers/
-│ │ ├── GM12878.cool
-│ │ ├── mESC_WT.cool
-│ │ └── ...
-│ └── metadata/
-│ └── sample_info.csv
+├── notebooks/
+│ ├── fig2A_logders.ipynb # Reproduces Fig. 2A (experimental log-derivatives)
+│ ├── fig4A_RAD21_degron_mESC.ipynb.ipynb # Reproduces Fig. 4A (partial RAD21 degradation)
+│ ├── fig4B_protocol_variation_ESC.ipynb # Reproduces Fig. 4B (protocol change)
+│ ├── fig5A_fountain.ipynb # Reproduces Fig. 5A (fountain diagram)
+│ ├── fig5A_fountain_aux.ipynb # Additional script with inferred parameters for Fig. 5A 
+│ └── infer_params.ipynb # Example: fit model to Hi-C scaling or log-derivative
 │
-├── src/ # Core analysis scripts
-│ ├── compute_ps_curve.py # Compute P(s) and log-derivative from cooler files
-│ ├── fit_loop_density.py # Fit T and v0_eff parameters from P(s)
-│ └── utils.py # Helper functions
+├── notebooks/src/
+│ ├── infer_density.py # Helper functions for fitting T and v₀
+│ |── utils.py # Helper functions to fit the data to the theoretical curves
+| |── data_load.py # Helper functions to load the data
 │
-├── notebooks/ # Jupyter notebooks reproducing paper figures
-│ ├── 01_compute_ps_and_derivative.ipynb
-│ ├── 02_fit_parameters.ipynb
-│ ├── 03_reproduce_fig2.ipynb
-│ ├── 04_reproduce_fig4.ipynb
-│ ├── 05_stoichiometry_analysis.ipynb
-│ └── ...
 │
-├── results/ # Output data and fitted parameters
-│ ├── inferred_parameters.csv
-│ └── figures/
-│ ├── Fig2A_fit.png
-│ ├── Fig4B_protocol_comparison.png
-│ └── ...
-│
-├── environment.yml # Conda environment specification
-├── LICENSE # License information (MIT for code, CC-BY 4.0 for data)
+├── LICENSE
 └── README.md
 ```
+
+---
+
+## ⚙️ Data Description
+
+All data used in the paper are stored in the **`data/`** folder as Python pickle files.  
+Each dataset contains:
+
+- `full_logder_x_<dataset>.pickle` → mids (genomic distances, kb)  
+- `full_logder_y_<dataset>.pickle` → log-derivative (smoothed derivative of log P(s))
+
+These files correspond to the datasets analyzed in the manuscript (Abramo, Bonev, Rao, Zhang, Wutz, Schwarzer, etc.).
+
+No preprocessing from raw `.cool` files is required — these intermediate products are **already included** for reproducibility.
+
+---
+
+## 🧩 Reproducing Paper Figures
+
+All figure notebooks are provided in the `notebooks/` folder:
+
+| Notebook | Description |
+|-----------|-------------|
+| **`fig2A_logders.ipynb`** | Plots all experimental log-derivatives used in Fig. 2A. |
+| **`fig4A_RAD21_degron_mESC.ipynb`** | Reproduces Fig. 4A — RAD21 degradation (loop density reduction). |
+| **`fig4B_protocol_variation_ESC.ipynb`** | Reproduces Fig. 4B (protocol variation). |
+| **`fig5A_fountain.ipynb`** | Reproduces Fig. 5A (cross-species comparison). |
+| **`infer_params.ipynb`** | Demonstrates parameter inference from new data. |
+
+Each notebook loads pickled mids and log-derivatives directly from `data/` and plots publication-ready figures.
+
+---
+
+## 🔍 Inferring Loop Density from Your Own Data
+
+You can infer \( T \) and \( v_0^{\mathrm{eff}} \) for any new dataset using the provided command-line script or notebook.
+
+### 🧠 From a Jupyter notebook
+```python
+!python src/infer_density.py \
+  --x data/full_logder_x_rao_GM12878_inSitu_DpnII.hg38.mapq_30.1000.mcool.pickle \
+  --y data/full_logder_y_rao_GM12878_inSitu_DpnII.hg38.mapq_30.1000.mcool.pickle \
+  --mode slope \
+  --output-plot results/gm12878_fit.png
 
 
 ---
