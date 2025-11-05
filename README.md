@@ -73,17 +73,16 @@ Each notebook loads pickled mids and log-derivatives directly from `data/` and p
 
 ## 🔍 Inferring Loop Density from Your Own Data
 
-You can infer \( T \) and \( v_0^{\mathrm{eff}} \) for any new dataset using the provided command-line script or notebook.
+You can infer loop period, loop density and effective fragment length for any new dataset using the notebook infer_params.ipynb or using the command-line script.
 
-### 🧠 From a Jupyter notebook
 ```python
-!python src/infer_density.py \
+python src/infer_density.py \
   --x data/full_logder_x_rao_GM12878_inSitu_DpnII.hg38.mapq_30.1000.mcool.pickle \
   --y data/full_logder_y_rao_GM12878_inSitu_DpnII.hg38.mapq_30.1000.mcool.pickle \
   --mode slope \
   --output-plot results/gm12878_fit.png
 
-
+```
 ---
 
 ## ⚙️ Installation
