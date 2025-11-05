@@ -31,8 +31,8 @@ It allows the user to **reproduce all figures** in the paper and to **infer the 
 │
 ├── notebooks/src/
 │ ├── infer_density.py # Helper functions for fitting T and v₀
-│ |── utils.py # Helper functions to fit the data to the theoretical curves
-| |── data_load.py # Helper functions to load the data
+│ ├── utils.py # Helper functions to fit the data to the theoretical curves
+| └── data_load.py # Helper functions to load the data
 │
 │
 ├── LICENSE
