@@ -19,8 +19,13 @@ It allows the user to **reproduce all figures** in the paper and to **infer the 
 ├── data/
 │ ├── full_logder_x_.pickle # Mids (genomic distances)
 │ ├── full_logder_y_.pickle # Log-derivatives (smoothed slopes of log P(s))
-│ ├── ... # All datasets used in the paper
+│ ├── ... # Main datasets used in the paper
 │ └── data_table_info.xlsx # The descriptive table of the datasets & the inferred parameters for each data
+│
+├── data/data_fig4
+│ ├── full_logder_x_.pickle # Mids (genomic distances)
+│ ├── full_logder_y_.pickle # Log-derivatives (smoothed slopes of log P(s))
+│ └── ... # The datasets used for Fig. 4A and Fig. 4B
 │
 ├── notebooks/
 │ ├── fig2A_logders.ipynb # Reproduces Fig. 2A (experimental log-derivatives)
