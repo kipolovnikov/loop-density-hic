@@ -73,15 +73,19 @@ Each notebook loads pickled mids and log-derivatives directly from `data/` and p
 
 ## 🔍 Inferring Loop Density from Your Own Data
 
-You can infer loop period, loop density and effective fragment length for any new dataset using the notebook infer_params.ipynb or using the command-line script.
+You can infer the **loop period** \(T\), **loop density** \(T^{-1}\), and **effective fragment length** \(v_0^{\mathrm{eff}}\) for any new dataset using either:
 
-```python
+- the **interactive notebook** `notebooks/infer_params.ipynb`, or  
+- the **command-line tool** `src/infer_density.py`.
+
+Below is an example of using the command-line tool on two pickle files containing **mids** and **slopes** (log-derivatives) precomputed from a Hi-C `.cool` file:
+
+```bash
 python src/infer_density.py \
-  --x data/full_logder_x_rao_GM12878_inSitu_DpnII.hg38.mapq_30.1000.mcool.pickle \
-  --y data/full_logder_y_rao_GM12878_inSitu_DpnII.hg38.mapq_30.1000.mcool.pickle \
+  --x data/full_logder_x_<dataset>.pickle \
+  --y data/full_logder_y_<dataset>.pickle \
   --mode slope \
-  --output-plot results/gm12878_fit.png
-
+  --output-plot results/<dataset>_fit.png
 ```
 ---
 
@@ -103,42 +107,6 @@ conda activate loop-density-hic
 ```bash
 pip install cooler numpy scipy matplotlib pandas jupyter
 ```
-
----
-
-## 🚀 Quick Start
-Compute $P(s)$ and its log-derivative
-```bash
-python src/compute_ps_curve.py --cool data/example_coolers/GM12878.cool --binsize 1000
-```
-
-## Fit loop-density parameters
-```bash
-python src/fit_loop_density.py --input results/GM12878_ps.csv
-```
-
-## Or run the notebook interactively
-```bash
-jupyter notebook notebooks/01_compute_ps_and_derivative.ipynb
-```
-
-## 📊 Example Output
-
-Each analysis produces:
-- Contact probability $P(s)$
-- Logarithmic derivative $\frac{d\log P}{d\log s}$
-- Fitted parameters: loop period $T$ and efffective fragment length $v_0^{\mathrm{eff}}$
-- Overlay plots comparing experimental and theoretical curves.
-
-## 📈 Reproducing Figures
-
-Each major figure in the paper can be regenerated via notebooks in notebooks/:
-| Figure    | Notebook                          | Description                                             |
-| --------- | --------------------------------- | ------------------------------------------------------- |
-| Fig. 2A   | `03_reproduce_fig2.ipynb`         | Theory vs. data: characteristic “dip” in log-derivative |
-| Fig. 4A   | `04_reproduce_fig4.ipynb`         | RAD21 degron perturbation: loop density reduction       |
-| Fig. 5A–B | `05_stoichiometry_analysis.ipynb` | Cross-dataset inference and cohesin stoichiometry       |
-
 
 ## 🧠 Model Summary
 
