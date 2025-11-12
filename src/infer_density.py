@@ -526,7 +526,7 @@ def main():
                         help="Number of initial points in slope used to locate the minimum.")
     parser.add_argument("--sfit-min", type=int, default=8,
                         help="The left end of the genomic interval (in kb) where to fit the slope")
-    parser.add_argument("--sfit-max", type=int, default=40,
+    parser.add_argument("--sfit-max", type=int, default=30,
                         help="The right end of the genomic interval (in kb) where to fit the slope")
     parser.add_argument("--output-plot", type=str, default=None,
                         help="Optional path to save the fit plot (PNG/PDF/etc.).")
