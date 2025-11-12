@@ -70,19 +70,20 @@ All figure notebooks are provided in the `notebooks/` folder:
 
 | Notebook | Description |
 |-----------|-------------|
-| **`fig2A_logders.ipynb`** | Plots all experimental log-derivatives used in Fig. 2A. |
-| **`fig4A_RAD21_degron_mESC.ipynb`** | Reproduces Fig. 4A — RAD21 degradation (loop density reduction). |
-| **`fig4B_protocol_variation_ESC.ipynb`** | Reproduces Fig. 4B (protocol variation). |
-| **`fig5A_fountain.ipynb`** | Reproduces Fig. 5A (cross-species comparison). |
-| **`infer_params.ipynb`** | Demonstrates parameter inference from new data. |
+| **`fig2A_logders_git.ipynb`** | Plots all experimental log-derivatives used in Fig. 2A. |
+| **`fig4A,S4A_RAD21_NIPBL_degron_git.ipynb`** | Reproduces Figs. 4A,S4A — RAD21 & NIPBL degradation (loop density reduction). |
+| **`fig4B,S4B_protocol_variation_git.ipynb`** | Reproduces Fig. 4B,S4B (protocol variation). |
+| **`fig5A_fountain_git.ipynb`** | Reproduces Fig. 5A (fountain diagram). |
+| **`fig5A_fountain_aux_git.ipynb`** | Extra notebook with the parameter inference for data in Fig. 5A  |
+| **`infer_params.ipynb`** | Demonstrates parameter inference from a given data. |
 
-Each notebook loads pickled mids and log-derivatives directly from `data/` and plots publication-ready figures.
+Each notebook loads pickled logariphmically-spaced genomic intervals (mids) and $P(s)$ log-derivatives directly from `data/` and reproduces figures from the paper.
 
 ---
 
 ## 🔍 Inferring Loop Density from Your Own Data
 
-You can infer the **loop period** \(T\), **loop density** \(T^{-1}\), and **effective fragment length** \(v_0^{\mathrm{eff}}\) for any new dataset using either:
+You can infer the **loop period** $T$, **loop density** $T^{-1}$, and **effective fragment length** $v_0^{\mathrm{eff}}$ for any custom scaling $P(s)$ using either:
 
 - the **interactive notebook** `notebooks/infer_params.ipynb`, or  
 - the **command-line tool** `src/infer_density.py`.
@@ -93,8 +94,6 @@ Below is an example of using the command-line tool on two pickle files containin
 python src/infer_density.py \
   --x data/full_logder_x_<dataset>.pickle \
   --y data/full_logder_y_<dataset>.pickle \
-  --mode slope \
-  --output-plot results/<dataset>_fit.png
 ```
 ---
 
@@ -133,8 +132,7 @@ This **two-parameter reduction** provides a universal fingerprint of cohesin loo
 If you use this repository, please cite:
 
 Polovnikov, K., & Starkov, D. (2025).
-Universal contact statistics of looped polymers resolve cohesin density and stoichiometry in vivo.
-bioRxiv: 10.1101/2025.09.04.674214v1
+A universal polymer signature in Hi-C resolves cohesin loop density and supports monomeric extrusion. bioRxiv: 10.1101/2025.09.04.674214v1
 
 ## 🤝 Acknowledgments
 
