@@ -8,7 +8,7 @@
 
 ## 📘 Overview
 
-This repository provides the **data and analysis code** used in our study of short-range Hi-C contact probability curves \( P(s) \).  
+This repository provides the **data and analysis code** used in our study of short-range Hi-C contact probability curves $P(s)$.  
 
 **Reproduces the main data–theory figures** from the paper and provides a computational framework to infer the **cohesin loop density** (inverse loop period $T^{-1}$) and the **effective fragment length** $v_0^{\text{eff}}$ from a precomputed Hi-C contact scaling curve $P(s)$.
 
@@ -19,26 +19,29 @@ This repository provides the **data and analysis code** used in our study of sho
 ├── data/
 │ ├── full_logder_x_.pickle # Mids (genomic distances)
 │ ├── full_logder_y_.pickle # Log-derivatives (smoothed slopes of log P(s))
-│ ├── ... # Main datasets used in the paper
-│ └── data_table_info.xlsx # The descriptive table of the datasets & the inferred parameters for each data
+│ ├── ... # Main datasets used in the paper & optimal parameters 
+│ └── data_table_info.xlsx # The descriptive table of the datasets and the inferred parameters for each data
 │
 ├── data/data_fig4
 │ ├── full_logder_x_.pickle # Mids (genomic distances)
 │ ├── full_logder_y_.pickle # Log-derivatives (smoothed slopes of log P(s))
-│ └── ... # The datasets used for Fig. 4A and Fig. 4B
+│ └── ... # The datasets used for Fig. 4 and Fig. S4
 │
 ├── notebooks/
-│ ├── fig2A_logders.ipynb # Reproduces Fig. 2A (experimental log-derivatives)
-│ ├── fig4A_RAD21_degron_mESC.ipynb.ipynb # Reproduces Fig. 4A (partial RAD21 degradation)
-│ ├── fig4B_protocol_variation_ESC.ipynb # Reproduces Fig. 4B (protocol change)
-│ ├── fig5A_fountain.ipynb # Reproduces Fig. 5A (fountain diagram)
-│ ├── fig5A_fountain_aux.ipynb # Additional script with inferred parameters for Fig. 5A 
-│ └── infer_params.ipynb # Example: fit model to Hi-C scaling or log-derivative
+│ ├── fig2A_logders_git.ipynb # Reproduces Fig. 2A (experimental log-derivatives)
+│ ├── fig4A,S4A_RAD21_NIPBL_degron_git.ipynb # Reproduces Figs. 4A,S4A (partial RAD21 and NIPBL degradation)
+│ ├── fig4B,S4B_protocol_variation_git.ipynb # Reproduces Figs. 4B,S4B (protocol effects for HFF & hESC cells)
+│ ├── fig5A_fountain_git.ipynb # Reproduces Fig. 5A (fountain diagram)
+│ ├── fig5A_fountain_aux_git.ipynb # Extra notebook with the parameter inference for data in Fig. 5A 
+│ └── infer_params.ipynb # Example notebook: fit the model to a given Hi-C scaling or log-derivative
 │
 ├── notebooks/src/
-│ ├── infer_density.py # Helper functions for fitting T and v₀
-│ ├── utils.py # Helper functions to fit the data to the theoretical curves
+│ ├── utils.py # Helper fitting functions used in notebooks
 | └── data_load.py # Helper functions to load the data
+│
+├── src/
+│ ├── infer_density.py # Scripts to fit a user scaling from the CLI
+│ ├── Cutoff_Full_Theory_shared.nb # a WM notebook with the full theory 
 │
 │
 ├── LICENSE
