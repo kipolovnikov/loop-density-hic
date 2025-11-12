@@ -10,7 +10,7 @@
 
 This repository provides the **data and analysis code** used in our study of short-range Hi-C contact probability curves \( P(s) \).  
 
-It allows the user to **reproduce all figures** in the paper and to **infer the loop density (period \(T\))** and **effective fragment length ($v_0^{eff}$)** from any Hi-C dataset.
+It allows the user to **reproduce all figures** in the paper and to **infer the loop density (period \(T\))** and **effective fragment length ($v_0^{\text{eff}}$)** from any Hi-C dataset.
 
 ---
 
