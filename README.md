@@ -77,7 +77,7 @@ All figure notebooks are provided in the `notebooks/` folder:
 | **`fig5A_fountain_aux_git.ipynb`** | Extra notebook with the parameter inference for data in Fig. 5A  |
 | **`infer_params.ipynb`** | Demonstrates parameter inference from a given data. |
 
-Each notebook loads pickled logariphmically-spaced genomic intervals (mids) and $P(s)$ log-derivatives directly from `data/` and reproduces figures from the paper.
+Each notebook loads pickled genomic intervals and $P(s)$ log-derivatives from `data/` to reproduce the paper's figures.
 
 ---
 
