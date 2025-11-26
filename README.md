@@ -17,7 +17,7 @@ s_{\min} \sim \sqrt{T v_0^{\mathrm{eff}}}, \qquad
 y_{\min} = f\left(\frac{v_0^{\mathrm{eff}}}{T}\right)
 $$
 
-This **two-parameter reduction** provides a universal fingerprint of cohesin loop density and experimental resolution across Hi-C protocols.
+This **two-parameter reduction** provides a universal fingerprint of cohesin loop density.
 
 ---
 
