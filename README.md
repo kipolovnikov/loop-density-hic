@@ -2,13 +2,22 @@
 
 ### Code and data accompanying the paper  
 **“A universal polymer signature in Hi-C resolves cohesin loop density and supports monomeric extrusion”**  
-*K. Polovnikov & D. Starkov (2025)*
+*K. Polovnikov & D. Starkov (2025)* bioRxiv: 10.1101/2025.09.04.674214v2
 
 ---
 
 ## 📘 Overview
 
-This repository provides the **data and analysis code** used in our study of short-range Hi-C contact probability curves $P(s)$.  
+At short genomic separations, the slope of the contact probability curve \(P(s)\) exhibits a conserved local minimum (“dip”) whose position scales with the geometric mean of loop period $T$ and $v_0^{\mathrm{eff}}$ and depth depends only on $v_0^{\mathrm{eff}}/T$:
+
+$$
+s_{\min} \sim \sqrt{T v_0^{\mathrm{eff}}}, \qquad
+y_{\min} = f\left(\frac{v_0^{\mathrm{eff}}}{T}\right)
+$$
+
+This **two-parameter reduction** provides a universal fingerprint of cohesin loop density and experimental resolution across Hi-C protocols.
+
+Here we provide the **data and analysis code** used in our study of short-range Hi-C contact probability curves $P(s)$.  
 
 **Reproduces the main data–theory figures** from the paper and provides a computational framework to infer the **cohesin loop density** (inverse loop period $T^{-1}$) and the **effective fragment length** $v_0^{\text{eff}}$ from a precomputed Hi-C contact scaling curve $P(s)$.
 
@@ -115,24 +124,6 @@ conda activate loop-density-hic
 ```bash
 pip install cooler numpy scipy matplotlib pandas jupyter
 ```
-
-## 🧠 Model Summary
-
-At short genomic separations, the slope of the contact probability curve \(P(s)\) exhibits a conserved local minimum (“dip”) whose position scales with the geometric mean of loop period $T$ and $v_0^{\mathrm{eff}}$ and depth depends only on $v_0^{\mathrm{eff}}/T$:
-
-$$
-s_{\min} \sim \sqrt{T v_0^{\mathrm{eff}}}, \qquad
-y_{\min} = f\left(\frac{v_0^{\mathrm{eff}}}{T}\right)
-$$
-
-This **two-parameter reduction** provides a universal fingerprint of cohesin loop density and experimental resolution across Hi-C protocols.
-
-## 📚 Reference
-
-If you use this repository, please cite:
-
-Polovnikov, K., & Starkov, D. (2025).
-A universal polymer signature in Hi-C resolves cohesin loop density and supports monomeric extrusion. bioRxiv: 10.1101/2025.09.04.674214v2
 
 ## 🤝 Acknowledgments
 
