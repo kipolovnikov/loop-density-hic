@@ -17,9 +17,7 @@ $$
 
 This **two-parameter reduction** provides a universal fingerprint of cohesin loop density and experimental resolution across Hi-C protocols.
 
-Here we provide the **data and analysis code** used in our study of short-range Hi-C contact probability curves $P(s)$.  
-
-**Reproduces the main data–theory figures** from the paper and provides a computational framework to infer the **cohesin loop density** (inverse loop period $T^{-1}$) and the **effective fragment length** $v_0^{\text{eff}}$ from a precomputed Hi-C contact scaling curve $P(s)$.
+Here we provide the **data and analysis code** used in our study of short-range Hi-C contact probability curves $P(s)$. This repository **reproduces the main data–theory figures** from the paper and provides a computational framework to infer the **cohesin loop density** (inverse loop period $T^{-1}$) and the **effective fragment length** $v_0^{\text{eff}}$ from a precomputed Hi-C contact scaling curve $P(s)$.
 
 ---
 
