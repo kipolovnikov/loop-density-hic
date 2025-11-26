@@ -132,7 +132,7 @@ This **two-parameter reduction** provides a universal fingerprint of cohesin loo
 If you use this repository, please cite:
 
 Polovnikov, K., & Starkov, D. (2025).
-A universal polymer signature in Hi-C resolves cohesin loop density and supports monomeric extrusion. bioRxiv: 10.1101/2025.09.04.674214v1
+A universal polymer signature in Hi-C resolves cohesin loop density and supports monomeric extrusion. bioRxiv: 10.1101/2025.09.04.674214v2
 
 ## 🤝 Acknowledgments
 
