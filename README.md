@@ -2,7 +2,7 @@
 
 ### Code and data accompanying the paper  
 **“A universal polymer signature in Hi-C resolves cohesin loop density and supports monomeric extrusion”**  
-*K. Polovnikov & D. Starkov (2025)* bioRxiv: 10.1101/2025.09.04.674214v2
+*K. Polovnikov & D. Starkov (2025)*. bioRxiv: 10.1101/2025.09.04.674214v2
 
 ---
 
